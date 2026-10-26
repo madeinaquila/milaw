@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MI.LAW – Legal Network | Milano</title>
+  <meta name="description" content="MI.LAW Legal Network – Una rete di avvocati autonomi che condividono competenze, esperienza e visione.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <img src="img/logomilaw.png" alt="MI.LAW Legal Network">
+      </div>
+      <div class="preloader-bar-wrap">
+        <div class="preloader-bar"></div>
+      </div>
+      <p class="preloader-label">Legal Network &middot; Milano</p>
+    </div>
+  </div>
+
+
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Informativa cookie">
+    <div class="cookie-inner">
+      <div class="cookie-text">
+        <p class="cookie-title">Rispettiamo la tua privacy</p>
+        <p class="cookie-body">Utilizziamo cookie tecnici necessari al funzionamento del sito e, previo consenso, cookie analitici per migliorare l'esperienza di navigazione. Nessun dato viene ceduto a terzi per finalità pubblicitarie. Per maggiori informazioni consulta la nostra <a href="#">Privacy Policy</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-customize" id="cookie-customize">Personalizza</button>
+        <button class="cookie-btn cookie-reject"    id="cookie-reject">Rifiuta tutto</button>
+        <button class="cookie-btn cookie-accept"    id="cookie-accept">Accetta tutto</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COOKIE MODAL (Personalizza) -->
+  <div id="cookie-modal" role="dialog" aria-modal="true" aria-label="Preferenze cookie" style="display:none;">
+    <div class="cookie-modal-box">
+      <div class="cookie-modal-header">
+        <h3>Preferenze cookie</h3>
+        <button class="a11y-close" id="cookie-modal-close" aria-label="Chiudi">✕</button>
+      </div>
+      <div class="cookie-modal-body">
+
+        <div class="cookie-row">
+          <div>
+            <p class="cookie-cat-title">Cookie tecnici necessari</p>
+            <p class="cookie-cat-desc">Indispensabili per il funzionamento del sito. Non possono essere disattivati.</p>
+          </div>
+          <label class="a11y-switch">
+            <input type="checkbox" checked disabled aria-label="Cookie tecnici sempre attivi">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="cookie-row">
+          <div>
+            <p class="cookie-cat-title">Cookie analitici</p>
+            <p class="cookie-cat-desc">Ci aiutano a capire come viene utilizzato il sito (es. pagine visitate, tempo di permanenza).</p>
+          </div>
+          <label class="a11y-switch">
+            <input type="checkbox" id="pref-analytics" aria-label="Cookie analitici">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="cookie-row" style="border-bottom:none;">
+          <div>
+            <p class="cookie-cat-title">Cookie di profilazione</p>
+            <p class="cookie-cat-desc">Utilizzati per mostrare contenuti personalizzati in base alle preferenze dell'utente.</p>
+          </div>
+          <label class="a11y-switch">
+            <input type="checkbox" id="pref-profiling" aria-label="Cookie di profilazione">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+      </div>
+      <div class="cookie-modal-footer">
+        <button class="cookie-btn cookie-accept" id="cookie-save-prefs">Salva preferenze</button>
+      </div>
+    </div>
+    <div class="cookie-modal-overlay" id="cookie-modal-overlay"></div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="img/logomilaw.png" alt="MI.LAW Legal Network"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+        <span class="logo-text" style="display:none;">MI.LAW <span>Legal Network</span></span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Apri menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+        <li><a href="aree.html">Aree di Attività</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- HERO SPLIT -->
+    <section class="hero-split">
+
+      <!-- Blocco sinistro: sfondo nero, testo descrittivo -->
+      <div class="hero-split-left">
+        <span class="hero-split-tag">MI.LAW – Legal Network · Milano</span>
+        <p class="hero-split-sub">
+          Il nostro network riunisce avvocati autonomi che condividono competenze, esperienza e visione.
+          Una rete di professionisti indipendenti, uniti da un obiettivo comune: offrire soluzioni legali
+          efficaci, coordinate e su misura.
+        </p>
+        <div class="hero-split-actions">
+          <a href="chi-siamo.html" class="btn btn-light">Scopri il Network</a>
+        </div>
+      </div>
+
+      <!-- Blocco destro: sfondo nero scuro, titolo grande -->
+      <div class="hero-split-right">
+        <div class="hero-split-right-inner">
+          <h1>
+            La forza dell'indipendenza —<br>
+            <em>il valore<br>della rete.</em>
+          </h1>
+          <a href="contatti.html" class="btn btn-teal" style="margin-top:3rem; display:inline-block;">Contattaci</a>
+        </div>
+        <!-- Decorazione geometrica angolare -->
+        <div class="hero-geo" aria-hidden="true">
+          <div class="hero-geo-box"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- IL NOSTRO APPROCCIO -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-tag">Il nostro approccio</span>
+          <div class="section-line">
+            <h2>Competenza. Indipendenza. <em>Sinergia.</em></h2>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2px;">
+
+          <div class="area-card fade-in">
+            <div class="area-icon-wrap">
+              <!-- Scale SVG minimalista -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="#7fc6bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                   xmlns="http://www.w3.org/2000/svg">
+                <line x1="12" y1="2" x2="12" y2="22"/>
+                <path d="M5 6 L2 12 L8 12 Z"/>
+                <path d="M19 6 L16 12 L22 12 Z"/>
+                <line x1="2" y1="6" x2="22" y2="6"/>
+                <line x1="4" y1="22" x2="20" y2="22"/>
+              </svg>
+            </div>
+            <h3>Diritto Civile &amp; Societario</h3>
+            <p class="area-desc">Assistenza qualificata nei principali ambiti del diritto civile, societario e commerciale.</p>
+          </div>
+
+          <div class="area-card fade-in">
+            <div class="area-icon-wrap">
+              <!-- Shield + digital -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="#7fc6bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                   xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2 L20 5.5 L20 12 C20 16.5 16.5 20.5 12 22 C7.5 20.5 4 16.5 4 12 L4 5.5 Z"/>
+                <polyline points="9,12 11,14 15,10"/>
+              </svg>
+            </div>
+            <h3>Diritto Digitale &amp; AI</h3>
+            <p class="area-desc">Information Technology, Intelligenza Artificiale, Data Protection e governance dei dati.</p>
+          </div>
+
+          <div class="area-card fade-in">
+            <div class="area-icon-wrap">
+              <!-- Network nodes -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                   stroke="#7fc6bf" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                   xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="4" r="2"/>
+                <circle cx="4" cy="20" r="2"/>
+                <circle cx="20" cy="20" r="2"/>
+                <line x1="12" y1="6" x2="4" y2="18"/>
+                <line x1="12" y1="6" x2="20" y2="18"/>
+                <line x1="6" y1="20" x2="18" y2="20"/>
+              </svg>
+            </div>
+            <h3>Approccio Multidisciplinare</h3>
+            <p class="area-desc">Un network che integra settori tradizionali e aree dell'innovazione in modo sinergico.</p>
+          </div>
+
+        </div>
+
+        <div style="margin-top:3rem; text-align:center;" class="fade-in">
+          <a href="aree.html" class="btn btn-secondary">Tutte le aree di attività</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- IN CIFRE -->
+    <section class="section">
+      <div class="container">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:3rem; text-align:center;">
+          <div class="fade-in">
+            <div style="font-family:var(--serif); font-size:4rem; font-weight:300; color:var(--teal); line-height:1;">4</div>
+            <div style="font-size:0.74rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-lt); margin-top:0.6rem;">Professioniste</div>
+          </div>
+          <div class="fade-in">
+            <div style="font-family:var(--serif); font-size:4rem; font-weight:300; color:var(--teal); line-height:1;">5</div>
+            <div style="font-size:0.74rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-lt); margin-top:0.6rem;">Aree di Attività</div>
+          </div>
+          <div class="fade-in">
+            <div style="font-family:var(--serif); font-size:4rem; font-weight:300; color:var(--teal); line-height:1;">1</div>
+            <div style="font-size:0.74rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--text-lt); margin-top:0.6rem;">Network Milano</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MILANO B&W -->
+    <section class="milano-section fade-in" aria-label="Milano, sede di MI.LAW">
+      <!--
+        Foto B&W di Milano (Duomo / skyline) — Unsplash free licence.
+        Se preferisci usare una tua foto, sostituisci il src con il percorso locale.
+      -->
+      <img
+        src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&auto=format&fit=crop"
+        alt="Skyline di Milano in bianco e nero — sede di MI.LAW Legal Network"
+        loading="lazy"
+      >
+      <div class="milano-section-overlay">
+        <div class="milano-section-text">
+          <span class="section-tag">Radici Milanesi</span>
+          <h2>Nel cuore<br>di <em>Milano</em></h2>
+          <p>
+            MI.LAW ha sede in Corso Vercelli 11, nel cuore di Milano.
+            Una città dinamica, internazionale, in continua evoluzione —
+            come i settori in cui operiamo.
+          </p>
+          <a href="contatti.html" class="btn btn-teal" style="margin-top:1.8rem; display:inline-block;">
+            Vieni a trovarci
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="img/logomilaw.png" alt="MI.LAW Legal Network"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+            <span class="logo-text" style="display:none;">MI.LAW <span>Legal Network</span></span>
+          </a>
+          <p>Una rete di avvocati autonomi uniti da un obiettivo comune: soluzioni legali efficaci e su misura.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigazione</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            <li><a href="aree.html">Aree di Attività</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <ul>
+            <li><a href="https://maps.google.com?q=Corso+Vercelli+11+Milano" target="_blank" rel="noopener">Corso Vercelli 11, 20144 Milano</a></li>
+            <li><a href="tel:024070195502">02 – 40.70.19.55</a></li>
+            <li><a href="mailto:info@milawln.com">info@milawln.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MI.LAW Legal Network – P.IVA da inserire – Tutti i diritti riservati</p>
+        <p><a href="#">Privacy Policy</a> · <a href="#">Cookie Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('open');
+    });
+
+    // Scroll fade-in
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // Custom cursor
+    (function() {
+      const dot  = document.getElementById('cursor-dot');
+      const ring = document.getElementById('cursor-ring');
+      let rx = 0, ry = 0, mx = 0, my = 0;
+
+      document.addEventListener('mousemove', e => {
+        mx = e.clientX; my = e.clientY;
+        dot.style.left = mx + 'px';
+        dot.style.top  = my + 'px';
+      });
+
+      (function animateRing() {
+        rx += (mx - rx) * 0.14;
+        ry += (my - ry) * 0.14;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+        requestAnimationFrame(animateRing);
+      })();
+
+      document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+    })();
+
+    // ── Preloader (solo prima visita per sessione) ──
+    (function () {
+      const preloader = document.getElementById('preloader');
+      const already   = sessionStorage.getItem('milaw_visited');
+
+      if (already) {
+        // Già visitato: nascondi immediatamente senza animazione
+        preloader.style.display = 'none';
+      } else {
+        // Prima visita: mostra il preloader e registra la sessione
+        document.body.style.overflow = 'hidden';
+
+        window.addEventListener('load', function () {
+          setTimeout(function () {
+            preloader.classList.add('preloader-hide');
+            document.body.style.overflow = '';
+            sessionStorage.setItem('milaw_visited', '1');
+          }, 2400);
+        });
+      }
+    })();
+
+
+    // ── Cookie Banner ──
+    (function () {
+      const COOKIE_KEY = 'milaw_cookie_consent';
+      const banner     = document.getElementById('cookie-banner');
+      const modal      = document.getElementById('cookie-modal');
+
+      // Se già scelto, non mostrare
+      if (localStorage.getItem(COOKIE_KEY)) {
+        banner.style.display = 'none';
+        return;
+      }
+
+      // Mostra banner con leggero ritardo (dopo il preloader)
+      setTimeout(function () {
+        banner.classList.add('cookie-visible');
+      }, 2900);
+
+      function hideBanner() {
+        banner.classList.remove('cookie-visible');
+        setTimeout(() => banner.style.display = 'none', 400);
+      }
+
+      // Accetta tutto
+      document.getElementById('cookie-accept').addEventListener('click', function () {
+        localStorage.setItem(COOKIE_KEY, JSON.stringify({ analytics: true, profiling: true }));
+        hideBanner();
+      });
+
+      // Rifiuta tutto
+      document.getElementById('cookie-reject').addEventListener('click', function () {
+        localStorage.setItem(COOKIE_KEY, JSON.stringify({ analytics: false, profiling: false }));
+        hideBanner();
+      });
+
+      // Personalizza — apri modale
+      document.getElementById('cookie-customize').addEventListener('click', function () {
+        modal.style.display = 'flex';
+        document.getElementById('cookie-modal-close').focus();
+      });
+
+      // Chiudi modale
+      function closeModal() { modal.style.display = 'none'; }
+      document.getElementById('cookie-modal-close').addEventListener('click', closeModal);
+      document.getElementById('cookie-modal-overlay').addEventListener('click', closeModal);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+      });
+
+      // Salva preferenze personalizzate
+      document.getElementById('cookie-save-prefs').addEventListener('click', function () {
+        const prefs = {
+          analytics: document.getElementById('pref-analytics').checked,
+          profiling:  document.getElementById('pref-profiling').checked
+        };
+        localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
+        closeModal();
+        hideBanner();
+      });
+    })();
+
+  </script>
+
+  <script src="accessibility.js"></script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avv. Simona Nicolosi – MI.LAW Legal Network</title>
+  <meta name="description" content="Profilo di Avv. Simona Nicolosi – Esperta in Diritto Digitale, IT, AI, Data Protection e Consumer Law. MI.LAW Legal Network, Milano.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    /* ── Stili specifici pagina profilo ── */
+    .profile-hero {
+      background: var(--black);
+      padding: 5rem 1.5rem 4rem;
+    }
+    .profile-hero-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 3.5rem;
+      align-items: end;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .profile-photo-wrap {
+      width: 200px;
+      height: 240px;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-shrink: 0;
+    }
+    .profile-photo-wrap svg { opacity: 0.3; }
+    .profile-photo-placeholder {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      font-family: var(--sans);
+      text-align: center;
+      padding: 0 1rem;
+    }
+    .profile-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: none; /* mostrata quando src è valida */
+    }
+    .profile-meta {
+      padding-bottom: 0.5rem;
+    }
+    .profile-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 2.5rem;
+      transition: color 0.2s;
+    }
+    .profile-back:hover { color: var(--teal); }
+    .profile-role {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .profile-hero h1 {
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 0;
+    }
+    .profile-langs {
+      display: inline-flex;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+    .profile-lang-tag {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.45);
+      font-family: var(--sans);
+    }
+
+    /* ── Body content ── */
+    .profile-body {
+      padding: 5rem 1.5rem;
+    }
+    .profile-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 5rem;
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Colonna sinistra — testo */
+    .profile-bio {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      line-height: 1.85;
+      font-weight: 300;
+      color: var(--text);
+    }
+    .profile-bio p + p { margin-top: 1.5rem; }
+
+    /* Colonna destra — sidebar */
+    .profile-sidebar { position: sticky; top: 2rem; }
+
+    .sidebar-block {
+      background: var(--gray);
+      padding: 2rem;
+      margin-bottom: 1px;
+    }
+    .sidebar-block-title {
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .sidebar-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .sidebar-tag {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      color: var(--text-sub);
+      background: var(--white);
+      letter-spacing: 0.06em;
+    }
+    .formation-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+    .formation-list li {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 0.8rem;
+      align-items: baseline;
+    }
+    .formation-year {
+      font-family: var(--serif);
+      font-size: 0.85rem;
+      color: var(--teal);
+      font-weight: 400;
+    }
+    .formation-desc {
+      font-size: 0.84rem;
+      color: var(--text-sub);
+      line-height: 1.6;
+      max-width: none;
+    }
+    .formation-desc strong {
+      display: block;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 0.86rem;
+      margin-bottom: 0.1rem;
+    }
+
+    /* Albo */
+    .albo-note {
+      font-size: 0.82rem;
+      color: var(--text-lt);
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+      max-width: none;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 900px) {
+      .profile-hero-inner { grid-template-columns: 1fr; }
+      .profile-photo-wrap { width: 140px; height: 170px; }
+      .profile-body-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .profile-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo" aria-label="MI.LAW Legal Network - Home">
+        <img src="img/logomilaw.png" alt="MI.LAW Legal Network"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+        <span class="logo-text" style="display:none;">MI.LAW <span>Legal Network</span></span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+        <li><a href="aree.html">Aree di Attività</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- PROFILE HERO -->
+    <div class="profile-hero">
+      <div class="profile-hero-inner">
+
+        <!-- Foto (placeholder) -->
+        <div class="profile-photo-wrap">
+          <img src="img/simona-nicolosi.jpg" alt="Avv. Simona Nicolosi"
+               onload="this.style.display='block'; this.parentElement.querySelector('svg').style.display='none'; this.parentElement.querySelector('.profile-photo-placeholder').style.display='none';">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none"
+               stroke="#7fc6bf" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <p class="profile-photo-placeholder">Foto in<br>arrivo</p>
+        </div>
+
+        <!-- Meta -->
+        <div class="profile-meta">
+          <a href="team.html" class="profile-back">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"/>
+            </svg>
+            Il Team
+          </a>
+          <span class="profile-role">Avvocato · MI.LAW Legal Network</span>
+          <h1>Simona Nicolosi</h1>
+          <div class="profile-langs">
+            <span class="profile-lang-tag">Italiano</span>
+            <span class="profile-lang-tag">English</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PROFILE BODY -->
+    <div class="profile-body">
+      <div class="profile-body-grid">
+
+        <!-- Bio -->
+        <div class="fade-in">
+          <span class="section-tag" style="margin-bottom:1.5rem; display:block;">Profilo professionale</span>
+          <div class="profile-bio">
+            <p>
+              Avvocato con consolidata esperienza in Diritto Digitale, IT e nuove tecnologie, contrattualistica commerciale, Consumer Law e Data Protection, con focus su GDPR compliance e progetti tecnologici complessi, Simona assiste società nazionali e internazionali nei settori fashion, cosmetics, retail, e-commerce, social media e influencer marketing.
+            </p>
+            <p>
+              Supporta le aziende clienti sia nella contrattualistica core business, sia nella gestione dei rischi legali connessi all'uso dei dati e alle tecnologie emergenti, inclusa l'intelligenza artificiale.
+            </p>
+            <p>
+              Simona ha collaborato con prestigiosi studi legali italiani e internazionali e, in qualità di General Counsel, ha costituito e gestito l'ufficio affari legali di un gruppo societario operante nei settori della security e system integration, maturando una significativa esperienza nella contrattualistica commerciale italiana e internazionale.
+            </p>
+            <p>
+              Ha sviluppato un particolare focus su franchising, distribuzione, contratti di agenzia, condizioni generali di contratto e contratti con i consumatori.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="profile-sidebar fade-in">
+
+          <!-- Aree di attività -->
+          <div class="sidebar-block">
+            <span class="sidebar-block-title">Aree di attività</span>
+            <div class="sidebar-tag-list">
+              <span class="sidebar-tag">Diritto Digitale</span>
+              <span class="sidebar-tag">IT e Intelligenza Artificiale</span>
+              <span class="sidebar-tag">Data Protection</span>
+              <span class="sidebar-tag">Contrattualistica Commerciale</span>
+              <span class="sidebar-tag">Consumer Law</span>
+            </div>
+          </div>
+
+          <!-- Formazione -->
+          <div class="sidebar-block">
+            <span class="sidebar-block-title">Formazione</span>
+            <ul class="formation-list">
+              <li>
+                <span class="formation-year">2016</span>
+                <p class="formation-desc">
+                  <strong>Master – Privacy Officer e Consulente della Privacy</strong>
+                  Federprivacy / Wolters Kluwer (certificazione TÜV)
+                </p>
+              </li>
+              <li>
+                <span class="formation-year">2005</span>
+                <p class="formation-desc">
+                  <strong>Corso Giurista d'Impresa</strong>
+                  SDA Bocconi, Milano
+                </p>
+              </li>
+              <li>
+                <span class="formation-year">2001</span>
+                <p class="formation-desc">
+                  <strong>LL.M. in European Law</strong>
+                  Queen Mary &amp; Westfield College, University of London
+                </p>
+              </li>
+            </ul>
+            <p class="albo-note">
+              Iscritta all'Albo degli Avvocati di Milano dal 2003.
+            </p>
+          </div>
+
+          <!-- Contatto diretto -->
+          <div class="sidebar-block">
+            <span class="sidebar-block-title">Contatto diretto</span>
+            <a href="mailto:simonanicolosi@milawln.com" class="sidebar-email">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+                   stroke="#7fc6bf" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              simonanicolosi@milawln.com
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="section section-alt" style="padding:3rem 1.5rem;">
+      <div class="container fade-in" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem;">
+        <div>
+          <span class="section-tag">Hai bisogno di assistenza?</span>
+          <h3 style="margin-top:0.3rem; font-size:1.4rem;">Contatta <em>Simona Nicolosi</em></h3>
+        </div>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center;">
+          <a href="mailto:simonanicolosi@milawln.com" class="btn btn-primary">Scrivi a Simona</a>
+          <a href="contatti.html" class="btn btn-secondary">Modulo di contatto</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo" aria-label="MI.LAW Home">
+            <img src="img/logomilaw.png" alt="MI.LAW Legal Network"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+            <span class="logo-text" style="display:none;">MI.LAW <span>Legal Network</span></span>
+          </a>
+          <p>Una rete di avvocati autonomi uniti da un obiettivo comune: soluzioni legali efficaci e su misura.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigazione</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            <li><a href="aree.html">Aree di Attività</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <ul>
+            <li><a href="https://maps.google.com?q=Corso+Vercelli+11+Milano" target="_blank" rel="noopener">Corso Vercelli 11, Milano</a></li>
+            <li><a href="tel:024070195502">02 – 40.70.19.55</a></li>
+            <li><a href="mailto:info@milawln.com">info@milawln.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 MI.LAW Legal Network – Tutti i diritti riservati</p>
+        <p><a href="#">Privacy Policy</a> · <a href="#">Cookie Policy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); hamburger.setAttribute('aria-expanded', open); });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    (function () {
+      if (window.matchMedia('(hover: none)').matches) return;
+      const dot = document.getElementById('cursor-dot'), ring = document.getElementById('cursor-ring');
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
+      (function a() { rx += (mx - rx) * 0.14; ry += (my - ry) * 0.14; ring.style.left = rx + 'px'; ring.style.top = ry + 'px'; requestAnimationFrame(a); })();
+      document.querySelectorAll('a, button').forEach(el => { el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover')); el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover')); });
+    })();
+  </script>
+  <script src="accessibility.js"></script>
+</body>
+</html>
