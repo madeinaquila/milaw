@@ -628,8 +628,6 @@ p {
 .flip-back {
   background: var(--black);
   padding: 2rem 2rem 2rem;
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -672,20 +670,22 @@ p {
 .flip-back-cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 1.4rem;
-  font-size: 0.7rem;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--black);
+  background: var(--teal);
   font-family: var(--sans);
-  transition: gap 0.2s;
   text-decoration: none;
-  border-bottom: 1px solid rgba(127,198,191,0.3);
-  padding-bottom: 2px;
+  transition: background 0.2s, color 0.2s, gap 0.2s;
+  align-self: flex-start;
 }
-.flip-back-cta:hover { gap: 0.7rem; color: var(--white); border-color: var(--white); }
+.flip-back-cta:hover { background: #fff; color: var(--black); gap: 0.8rem; }
 
 /* Card senza profilo: disabilita il reveal */
 .flip-card.no-profile:hover .flip-back,
