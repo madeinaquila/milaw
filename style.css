@@ -533,7 +533,7 @@ p {
 
 /* ── Faccia Anteriore ── */
 .flip-front {
-  background: #b8b8b5;
+  background: #a8a8a5;
   padding: 0;
   justify-content: flex-end;
   overflow: hidden;
@@ -543,10 +543,14 @@ p {
 /* testo in basso sovrapposto alla foto */
 .flip-front-content {
   position: relative;
-  z-index: 1;
-  padding: 1.6rem 1.8rem 2rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.0) 100%);
+  z-index: 2;
+  padding: 1.4rem 1.6rem 1.8rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.0) 100%);
   width: 100%;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* Foto o avatar */
@@ -568,51 +572,64 @@ p {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: #c8c8c5;
+  background: linear-gradient(160deg, #9a9a97 0%, #b5b5b2 50%, #a2a2a0 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 1rem;
   z-index: 0;
 }
 
+.flip-photo-placeholder::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
+}
+
+.flip-photo-placeholder::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
+}
+
 .flip-photo-placeholder svg {
-  width: 40px; height: 40px;
-  stroke: rgba(255,255,255,0.55);
-  fill: none;
+  display: none;
 }
 
 .flip-photo-placeholder span {
-  font-family: var(--sans);
-  font-size: 0.64rem;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.6);
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.45);
 }
 
 /* Il contenuto testuale va sopra il placeholder */
 .flip-front > *:not(.flip-photo-placeholder) { position: relative; z-index: 1; }
 
 .flip-role {
-  font-size: 0.66rem;
+  font-size: 0.62rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(127,198,191,0.9);
-  margin-bottom: 0.3rem;
+  color: var(--teal);
+  margin-bottom: 0.35rem;
 }
 
 .flip-front h3 {
-  font-size: 1.22rem;
-  margin-bottom: 0.2rem;
-  color: var(--white);
+  font-size: 1.18rem;
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 .flip-front .flip-areas {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.65);
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.72);
   max-width: none;
   line-height: 1.5;
 }
