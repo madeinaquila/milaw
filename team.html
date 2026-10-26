@@ -70,7 +70,7 @@
                   <span>Foto in arrivo</span>
                 </div>
                 <div class="flip-front-content">
-                  <div class="flip-role">Avvocato · Fondatrice</div>
+                  <div class="flip-role">Avvocato</div>
                   <h3>Simona Nicolosi</h3>
                   <p class="flip-areas">Diritto Digitale · Data Protection · AI</p>
                 </div>
@@ -259,11 +259,10 @@
     /* ── Flip card: touch / click support ── */
     document.querySelectorAll('.flip-card').forEach(card => {
       card.addEventListener('click', function(e) {
-        /* Se l'utente clicca su un link nella faccia posteriore, lascia navigare */
         if (e.target.closest('a')) return;
         const inner = card.querySelector('.flip-card-inner');
-        const flipped = inner.style.transform === 'rotateY(180deg)';
-        inner.style.transform = flipped ? '' : 'rotateY(180deg)';
+        const flipped = inner.classList.contains('is-flipped');
+        inner.classList.toggle('is-flipped', !flipped);
       });
     });
 
