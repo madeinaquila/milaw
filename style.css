@@ -1379,152 +1379,103 @@ html.a11y-focus *:focus {
 /* ══════════════════════════════════════════
    HERO SPLIT — Layout asimmetrico
    ══════════════════════════════════════════ */
-.hero-split {
-  display: grid;
-  grid-template-columns: 38% 62%;
-  min-height: calc(100vh - var(--nav-h));
-}
-
-.hero-split-left {
-  background: var(--white);
-  padding: 5rem 3.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  opacity: 0;
-  animation: fadeUp 0.9s 0.2s ease forwards;
-}
-
-.hero-split-tag {
-  font-family: var(--sans);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--teal);
-  display: block;
-  margin-bottom: 2.5rem;
-}
-
-.hero-split-sub {
-  font-size: 1rem;
-  line-height: 1.92;
-  color: var(--text-sub);
-  flex: 1;
-  max-width: none;
-}
-
-.hero-split-actions { margin-top: 2.5rem; }
-
-.hero-split-right {
-  background: var(--teal);
-  padding: 5rem 4.5rem 5rem 5rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+/* ── HERO COVER — immagine Milano a tutta pagina ── */
+.hero-cover {
   position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 580px;
+  max-height: 960px;
   overflow: hidden;
-  opacity: 0;
-  animation: fadeUp 1s 0.4s ease forwards;
 }
 
-/* Immagine Milano B&W in overlay sulla colonna destra */
-.hero-split-right .milano-bg {
+.hero-cover-img {
   position: absolute;
   inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: 0.18;
-  z-index: 0;
-  filter: grayscale(100%) contrast(1.1);
-  mix-blend-mode: luminosity;
-}
-
-.hero-split-right-inner { position: relative; z-index: 2; }
-
-.hero-split-right h1 {
-  font-size: clamp(2.8rem, 5.2vw, 5rem);
-  color: var(--white);
-  line-height: 1.08;
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  max-width: 14ch;
-}
-
-.hero-split-right h1 em {
-  font-style: italic;
-  color: var(--white);
-  opacity: 0.82;
-  display: block;
-}
-
-.hero-geo {
-  position: absolute;
-  bottom: -70px; right: -70px;
-  width: 340px; height: 340px;
-  opacity: 0.12;
-  z-index: 1;
-}
-.hero-geo-box {
-  width: 100%; height: 100%;
-  border: 2px solid var(--white);
-  transform: rotate(22deg);
-}
-
-/* ── Sezione immagine Milano dedicata (homepage) ── */
-.milano-section {
-  position: relative;
-  overflow: hidden;
-  height: clamp(520px, 72vh, 780px);
-}
-
-.milano-section img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%) contrast(1.05);
+  object-position: center 30%;
+  filter: grayscale(100%) contrast(1.05) brightness(0.92);
   display: block;
 }
 
-.milano-section-overlay {
+.hero-cover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.15) 100%);
+  /* Gradiente morbido — più chiaro in alto, leggermente più scuro in basso */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.22) 0%,
+    rgba(0,0,0,0.38) 50%,
+    rgba(0,0,0,0.58) 100%
+  );
+}
+
+.hero-cover-content {
+  position: absolute;
+  inset: 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 5rem 5.5rem;
+  max-width: 820px;
+  opacity: 0;
+  animation: fadeUp 1s 0.3s ease forwards;
 }
 
-.milano-section-text {
-  padding: 0 5rem;
-  max-width: 640px;
+.hero-cover-tag {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(127,198,191,0.95);
+  display: block;
+  margin-bottom: 1.4rem;
 }
 
-.milano-section-text .section-tag { color: rgba(127,198,191,0.9); }
-
-.milano-section-text h2 {
+.hero-cover-content h1 {
+  font-size: clamp(3rem, 6.5vw, 5.8rem);
   color: var(--white);
-  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
-  margin-top: 0.7rem;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  line-height: 1.06;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  max-width: 14ch;
+  margin: 0;
 }
 
-.milano-section-text h2 em { color: rgba(127,198,191,0.9); }
+.hero-cover-content h1 em {
+  font-style: italic;
+  color: rgba(127,198,191,0.92);
+}
 
-.milano-section-text p {
-  color: rgba(255,255,255,0.72);
-  max-width: 44ch;
-  margin-top: 1.4rem;
-  font-size: 1.05rem;
-  line-height: 1.9;
-  font-size: 0.97rem;
-  line-height: 1.85;
+.hero-cover-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.8rem;
+  flex-wrap: wrap;
+}
+
+/* Bottone outline bianco per hero cover */
+.hero-cover .btn-light {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.6);
+}
+.hero-cover .btn-light:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--white);
 }
 
 @media (max-width: 768px) {
-  .milano-section { height: clamp(420px, 65vw, 520px); }
-  .milano-section-text { padding: 0 2rem; }
-  .milano-section-overlay { background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.55)); }
+  .hero-cover { height: 100svh; min-height: 500px; }
+  .hero-cover-content { padding: 0 2rem 4rem; }
+  .hero-cover-content h1 { font-size: clamp(2.4rem, 10vw, 3.6rem); }
+}
+
+@media (max-width: 480px) {
+  .hero-cover-content { padding: 0 1.5rem 3.5rem; }
 }
 
 /* Bottoni specifici hero */
@@ -1558,18 +1509,6 @@ html.a11y-focus *:focus {
 }
 .btn-teal:hover { background: var(--black); border-color: var(--black); color: var(--white); }
 
-/* Responsive hero split */
-@media (max-width: 900px) {
-  .hero-split { grid-template-columns: 1fr; }
-  .hero-split-left  { padding: 4rem 2rem 3rem; min-height: auto; }
-  .hero-split-right { padding: 3rem 2rem 4rem; align-items: flex-start; min-height: 50vh; }
-  .hero-split-right h1 { font-size: clamp(2.4rem, 8vw, 3.5rem); }
-}
-
-@media (max-width: 480px) {
-  .hero-split-left  { padding: 3rem 1.5rem 2.5rem; }
-  .hero-split-right { padding: 2.5rem 1.5rem 3rem; }
-}
 
 /* ── Team card cliccabile (vecchio stile, ancora usato) ── */
 .team-card-link { text-decoration: none; display: block; cursor: pointer; }
