@@ -496,198 +496,163 @@ p {
    ══════════════════════════════════════════ */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5rem;
 }
 
-/* Outer container con perspective */
 .flip-card {
   perspective: 1000px;
-  height: 360px;
+  height: 400px;
 }
 
-/* Inner rotante */
 .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Touch device: non girare al hover, ma al click */
 .flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-/* Facce */
+/* ── Fronte e retro: stesso contenitore ── */
 .flip-front,
 .flip-back {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ── Faccia Anteriore ── */
-.flip-front {
-  background: #a8a8a5;
-  padding: 0;
-  justify-content: flex-end;
   overflow: hidden;
-  position: relative;
 }
 
-/* testo in basso sovrapposto alla foto */
-.flip-front-content {
-  position: relative;
-  z-index: 2;
-  padding: 1.4rem 1.6rem 1.8rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.0) 100%);
-  width: 100%;
-  min-height: 120px;
+/* ── FRONTE: placeholder foto ── */
+.flip-front {
+  background: linear-gradient(160deg, #aeaeab 0%, #c6c6c3 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-/* Foto o avatar */
-.flip-photo {
-  width: 80px; height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1.2rem;
-  border: 2px solid var(--teal);
-}
-
-.flip-avatar {
-  display: none; /* nascosto — sostituito da .flip-photo-placeholder */
-}
-
-/* Placeholder foto: rettangolo che copre la faccia anteriore della card */
 .flip-photo-placeholder {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(160deg, #9a9a97 0%, #b5b5b2 50%, #a2a2a0 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  z-index: 0;
+  gap: 0.7rem;
 }
 
-.flip-photo-placeholder::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: rgba(255,255,255,0.4);
-}
+.flip-photo-placeholder svg { display: none; }
 
+.flip-photo-placeholder::before,
 .flip-photo-placeholder::after {
   content: '';
-  width: 32px;
+  display: block;
+  width: 28px;
   height: 1px;
-  background: rgba(255,255,255,0.4);
-}
-
-.flip-photo-placeholder svg {
-  display: none;
+  background: rgba(255,255,255,0.38);
 }
 
 .flip-photo-placeholder span {
   font-family: var(--serif);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 300;
   font-style: italic;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   color: rgba(255,255,255,0.45);
 }
 
-/* Il contenuto testuale va sopra il placeholder */
-.flip-front > *:not(.flip-photo-placeholder) { position: relative; z-index: 1; }
+/* Fascia nome in basso */
+.flip-front-content {
+  position: relative;
+  z-index: 2;
+  padding: 1.4rem 1.8rem 1.8rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.4) 65%, transparent 100%);
+}
 
 .flip-role {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--teal);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .flip-front h3 {
-  font-size: 1.18rem;
-  margin-bottom: 0.25rem;
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.2rem;
 }
 
 .flip-front .flip-areas {
   font-size: 0.78rem;
-  color: rgba(255,255,255,0.72);
-  max-width: none;
+  color: rgba(255,255,255,0.65);
   line-height: 1.5;
 }
 
-/* Barra decorativa sinistra che sale su hover */
-.flip-front::after {
+.flip-avatar { display: none; }
+
+/* barra teal sinistra su hover */
+.flip-front::before {
   content: '';
   position: absolute;
   top: 0; left: 0;
   width: 3px; height: 0;
   background: var(--teal);
   transition: height 0.4s ease;
-  z-index: 2;
+  z-index: 3;
 }
-.flip-card:hover .flip-front::after { height: 100%; }
+.flip-card:hover .flip-front::before { height: 100%; }
 
-/* ── Faccia Posteriore ── */
+/* ── RETRO: testo specializzazione ── */
 .flip-back {
   background: var(--black);
-  padding: 2.2rem 2rem;
-  justify-content: space-between;
+  padding: 2rem 2rem 1.8rem;
   transform: rotateY(180deg);
-  position: absolute;
-  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .flip-back-role {
-  font-size: 0.64rem;
+  font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--teal);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .flip-back h3 {
   color: var(--white);
-  font-size: 1.12rem;
-  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.9rem;
 }
 
 .flip-back-desc {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.75);
-  max-width: none;
-  line-height: 1.8;
+  font-size: 0.84rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.78;
   flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 
 .flip-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin-top: 1.2rem;
+  margin-top: 1rem;
 }
 
 .flip-tag {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1661,6 +1626,10 @@ html.a11y-focus *:focus {
 
   /* Sezione in cifre */
   .stats-row { flex-direction: column; gap: 2rem; }
+
+  /* Team flip card — griglia a 2 colonne su tablet */
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .flip-card { height: 360px; }
 }
 
 @media (max-width: 480px) {
@@ -1689,6 +1658,7 @@ html.a11y-focus *:focus {
     gap: 2rem !important;
   }
 
-  #a11y-trigger { bottom: 1rem; right: 1rem; width: 46px; height: 46px; }
-  #a11y-panel   { right: 1rem; width: calc(100vw - 2rem); }
+  /* Team: colonna singola su mobile piccolo */
+  .team-grid { grid-template-columns: 1fr; }
+  .flip-card { height: 380px; }
 }
