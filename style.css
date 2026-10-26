@@ -501,50 +501,53 @@ p {
 }
 
 .flip-card {
-  perspective: 1200px;
-  -webkit-perspective: 1200px;
   height: 400px;
-  /* Isola il contesto di stacking per Safari */
-  isolation: isolate;
-}
-
-.flip-card-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-  -webkit-transition: -webkit-transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.flip-card:hover .flip-card-inner,
-.flip-card-inner.is-flipped {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-}
-
-/* ── Fronte e retro ── */
-.flip-front,
-.flip-back {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   overflow: hidden;
-  /* Forza il rendering in layer separati — fix per Safari/Chrome */
-  will-change: transform;
+}
+
+/* Il wrapper non ruota più — fronte e retro si sovrappongono */
+.flip-card-inner {
+  position: absolute;
+  inset: 0;
 }
 
 /* ── FRONTE: placeholder foto ── */
 .flip-front {
+  position: absolute;
+  inset: 0;
   background: linear-gradient(160deg, #aeaeab 0%, #c6c6c3 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  transform: rotateY(0deg);
-  -webkit-transform: rotateY(0deg);
+  transition: opacity 0.45s ease;
+  z-index: 1;
+}
+
+/* ── RETRO: sale dal basso con clip-path ── */
+.flip-back {
+  position: absolute;
+  inset: 0;
+  background: var(--black);
+  padding: 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+/* Hover / touch-flipped */
+.flip-card:hover .flip-back,
+.flip-card.is-flipped .flip-back {
+  clip-path: inset(0% 0 0 0);
+}
+
+.flip-card:hover .flip-front,
+.flip-card.is-flipped .flip-front {
+  opacity: 0;
 }
 
 .flip-photo-placeholder {
@@ -608,7 +611,7 @@ p {
 
 .flip-avatar { display: none; }
 
-/* barra teal sinistra su hover */
+/* barra teal sinistra */
 .flip-front::before {
   content: '';
   position: absolute;
@@ -618,7 +621,8 @@ p {
   transition: height 0.4s ease;
   z-index: 3;
 }
-.flip-card:hover .flip-front::before { height: 100%; }
+.flip-card:hover .flip-front::before,
+.flip-card.is-flipped .flip-front::before { height: 100%; }
 
 /* ── RETRO: testo specializzazione ── */
 .flip-back {
@@ -683,9 +687,11 @@ p {
 }
 .flip-back-cta:hover { gap: 0.7rem; color: var(--white); border-color: var(--white); }
 
-/* Card non ancora profilata: sfondo grigio senza flip */
-.flip-card.no-profile .flip-card-inner { transform: none !important; }
-.flip-card.no-profile .flip-front { justify-content: flex-end; }
+/* Card senza profilo: disabilita il reveal */
+.flip-card.no-profile:hover .flip-back,
+.flip-card.no-profile.is-flipped .flip-back { clip-path: inset(100% 0 0 0); }
+.flip-card.no-profile:hover .flip-front,
+.flip-card.no-profile.is-flipped .flip-front { opacity: 1; }
 
 /* Responsivo tablet/mobile */
 @media (max-width: 900px) {

@@ -256,13 +256,11 @@
     const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-    /* ── Flip card: touch / click support ── */
+    /* ── Flip card: touch support ── */
     document.querySelectorAll('.flip-card').forEach(card => {
       card.addEventListener('click', function(e) {
         if (e.target.closest('a')) return;
-        const inner = card.querySelector('.flip-card-inner');
-        const flipped = inner.classList.contains('is-flipped');
-        inner.classList.toggle('is-flipped', !flipped);
+        card.classList.toggle('is-flipped');
       });
     });
 
