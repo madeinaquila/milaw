@@ -259,3 +259,20 @@ main em { color: var(--acqua-scuro); }
 @media (prefers-reduced-motion: reduce) {
   .area-tile, .tile-visual, .tile-visual::before, .tile-more { transition: none; }
 }
+
+/* Aree: foto vere in bianco e nero con velatura verde acqua (al posto di "area #n") */
+.tile-visual { padding: 0; }
+.tile-visual::before { display: none; }
+.tile-visual img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.08) brightness(1.02);
+  transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.tile-visual::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(160deg, rgba(127,198,191,.55) 0%, rgba(36,89,85,.55) 100%);
+  mix-blend-mode: multiply;
+}
+@media (hover: hover) {
+  .area-tile:hover .tile-visual img { transform: scale(1.06); }
+}
