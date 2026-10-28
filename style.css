@@ -35,51 +35,10 @@ body {
   color: var(--text);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
-  cursor: none;
 }
 
-a       { color: inherit; text-decoration: none; cursor: none; }
-button  { cursor: none; }
+a       { color: inherit; text-decoration: none; }
 img     { display: block; max-width: 100%; }
-
-/* ══════════════════════════════════════════
-   CUSTOM CURSOR
-   ══════════════════════════════════════════ */
-#cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 8px; height: 8px;
-  background: var(--white);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.18s ease, height 0.18s ease, background 0.18s ease;
-  will-change: left, top;
-  mix-blend-mode: difference;
-}
-
-#cursor-ring {
-  position: fixed;
-  top: 0; left: 0;
-  width: 30px; height: 30px;
-  border: 1.5px solid rgba(255,255,255,0.7);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.22s ease, height 0.22s ease, border-color 0.2s ease;
-  will-change: left, top;
-  mix-blend-mode: difference;
-}
-
-body.cursor-hover #cursor-dot  { width: 5px; height: 5px; background: var(--teal); }
-body.cursor-hover #cursor-ring { width: 44px; height: 44px; border-color: var(--teal); }
-
-@media (hover: none) {
-  #cursor-dot, #cursor-ring { display: none; }
-  body, a, button { cursor: auto; }
-}
 
 /* ══════════════════════════════════════════
    TYPOGRAPHY — migliorata leggibilità
@@ -561,6 +520,19 @@ p {
 }
 
 .flip-photo-placeholder svg { display: none; }
+
+/* Ritratto: quando arrivano le foto, basta inserire
+   <img class="flip-photo" src="img/team/nome.jpg" alt="Avv. Nome Cognome">
+   al posto del blocco .flip-photo-placeholder */
+.flip-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(1);
+}
 
 .flip-photo-placeholder::before,
 .flip-photo-placeholder::after {
@@ -1219,8 +1191,6 @@ html.a11y-links a {
 html.a11y-bigcursor,
 html.a11y-bigcursor a,
 html.a11y-bigcursor button { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%237fc6bf' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%237fc6bf'/%3E%3C/svg%3E") 16 16, auto !important; }
-html.a11y-bigcursor #cursor-dot,
-html.a11y-bigcursor #cursor-ring { display: none; }
 
 html.a11y-spacing p,
 html.a11y-spacing li,
