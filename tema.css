@@ -172,3 +172,90 @@ main em { color: var(--acqua-scuro); }
 /* Contatti: niente scorrimento orizzontale sul telefono */
 .contact-grid > * { min-width: 0; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* ============================================================
+   Aree di attività: card con angoli arrotondati, a carosello
+   ============================================================ */
+.tiles-section { background: #f3f6f5; }
+.tiles {
+  display: grid; grid-auto-flow: column; grid-auto-columns: minmax(300px, 1fr);
+  gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  padding: 8px 4px 28px; margin: 0 -4px; scroll-padding-left: 4px; scrollbar-width: none;
+}
+.tiles::-webkit-scrollbar { display: none; }
+.tiles:focus-visible { outline: 2px solid var(--acqua); outline-offset: 4px; }
+
+.area-tile {
+  scroll-snap-align: start; background: var(--white); border-radius: 22px; padding: 10px;
+  display: flex; flex-direction: column; height: 520px; min-width: 0;
+  transition: box-shadow .35s ease, transform .35s ease;
+}
+.tile-visual {
+  position: relative; flex: none; height: 330px; border-radius: 16px; overflow: hidden;
+  display: flex; justify-content: space-between; align-items: flex-start; padding: 18px 20px;
+  color: rgba(255,255,255,.9); font-size: 0.9rem; letter-spacing: .02em;
+  transition: height .45s cubic-bezier(.2,.7,.2,1);
+  background-color: var(--acqua-scuro);
+}
+/* curve astratte disegnate in SVG, sopra un gradiente verde acqua */
+.tile-visual::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.2'%3E%3Cpath d='M-20 60 C 120 80 260 200 420 420' stroke-opacity='.55'/%3E%3Cpath d='M-20 140 C 140 150 280 260 420 440' stroke-opacity='.3'/%3E%3Cpath d='M-20 300 C 120 300 300 330 420 360' stroke-opacity='.35'/%3E%3Cpath d='M60 -20 C 90 140 220 300 420 330' stroke-opacity='.22'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%; transition: transform .8s ease;
+}
+.tile-visual span { position: relative; z-index: 1; }
+.v1 { background: radial-gradient(120% 90% at 85% 15%, #7fc6bf 0%, #3f8e87 38%, #1f4d4a 80%); }
+.v2 { background: radial-gradient(110% 100% at 20% 90%, #9fd6d0 0%, #4f9c95 35%, #245955 78%); }
+.v2::before { transform: scaleX(-1); }
+.v3 { background: radial-gradient(120% 90% at 50% 0%, #7fc6bf 0%, #357d77 45%, #1d4744 85%); }
+.v3::before { transform: rotate(180deg); }
+.v4 { background: radial-gradient(130% 100% at 0% 0%, #b5e0db 0%, #5aa69f 35%, #245955 80%); }
+.v5 { background: radial-gradient(110% 90% at 100% 100%, #8fcfc8 0%, #45918a 40%, #1f4d4a 85%); }
+.v5::before { transform: scaleY(-1); }
+
+.tile-body { padding: 22px 16px 12px; display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.tile-body h3 { font-size: 1.9rem; line-height: 1.1; font-weight: 500; color: var(--text); }
+.tile-per { font-size: 0.95rem; color: var(--text-lt); margin-top: .4rem; line-height: 1.5; }
+.tile-more {
+  margin-top: auto; opacity: 0; transform: translateY(12px);
+  transition: opacity .35s ease .05s, transform .35s ease .05s;
+}
+.tile-more p { font-size: 0.95rem; color: var(--text); margin-bottom: .5rem; }
+.tile-more ul { list-style: none; display: grid; gap: .35rem; }
+.tile-more li { position: relative; padding-left: 1.3rem; font-size: 0.98rem; color: var(--text); line-height: 1.45; }
+.tile-more li::before { content: ''; position: absolute; left: 0; top: .5em; width: 8px; height: 8px; border-radius: 50%; background: var(--acqua); }
+.tile-more a {
+  display: inline-block; margin-top: 1rem; font-size: 0.74rem; font-weight: 500; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--acqua-scuro);
+}
+.tile-more a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* al passaggio: la figura si accorcia e compaiono i dettagli */
+@media (hover: hover) {
+  .area-tile:hover, .area-tile:focus-within { box-shadow: 0 18px 40px -18px rgba(31,77,74,.35); transform: translateY(-4px); }
+  .area-tile:hover .tile-visual, .area-tile:focus-within .tile-visual { height: 140px; }
+  .area-tile:hover .tile-visual::before { transform: scale(1.15); }
+  .area-tile:hover .tile-more, .area-tile:focus-within .tile-more { opacity: 1; transform: none; }
+}
+/* su telefono e tablet i dettagli sono sempre visibili */
+@media (hover: none) {
+  .area-tile { height: auto; }
+  .tile-visual { height: 150px; }
+  .tile-more { opacity: 1; transform: none; margin-top: 1.4rem; }
+}
+
+.tiles-nav { display: flex; justify-content: center; gap: 2.4rem; margin-top: .6rem; }
+.tiles-nav button {
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(36,89,85,.25); background: var(--white);
+  font-size: 1.2rem; color: var(--acqua-scuro); cursor: pointer; transition: background .25s, color .25s, opacity .25s;
+}
+.tiles-nav button:hover:not(:disabled) { background: var(--acqua-scuro); color: var(--white); border-color: var(--acqua-scuro); }
+.tiles-nav button:disabled { opacity: .35; cursor: default; }
+
+@media (max-width: 600px) {
+  .tiles { grid-auto-columns: 84%; }
+  .tile-body h3 { font-size: 1.6rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .area-tile, .tile-visual, .tile-visual::before, .tile-more { transition: none; }
+}
