@@ -276,3 +276,42 @@ main em { color: var(--acqua-scuro); }
 @media (hover: hover) {
   .area-tile:hover .tile-visual img { transform: scale(1.06); }
 }
+
+/* ============================================================
+   Team: stessa forma delle card delle aree (angoli arrotondati,
+   cornice bianca, foto arrotondata all'interno)
+   ============================================================ */
+.team-grid { gap: 20px; }
+.flip-card {
+  background: var(--white); border-radius: 22px; padding: 10px;
+  transition: box-shadow .35s ease, transform .35s ease;
+}
+.flip-card-inner { inset: 10px; border-radius: 16px; overflow: hidden; }
+.flip-front, .flip-back { border-radius: 16px; }
+.flip-front { background: linear-gradient(160deg, #b9c9c6 0%, #8fa7a3 100%); }
+.flip-front-content { background: linear-gradient(to top, rgba(15,46,44,.82) 0%, rgba(15,46,44,.35) 65%, transparent 100%); }
+.flip-front::before { display: none; }
+.flip-photo { filter: grayscale(1) contrast(1.05); }
+.flip-back-cta { border-radius: 999px; background: var(--acqua); color: #0f2e2c; }
+.flip-back-cta:hover { background: #fff; }
+.flip-tag { border-radius: 999px; }
+@media (hover: hover) {
+  .flip-card:hover { box-shadow: 0 18px 40px -18px rgba(31,77,74,.35); transform: translateY(-4px); }
+}
+/* telefono: foto arrotondata sopra, dettagli sotto dentro la stessa card */
+@media (hover: none) {
+  .flip-card { padding: 10px; }
+  .flip-card-inner { border-radius: 16px; }
+  .flip-front { border-radius: 16px 16px 0 0; }
+  .flip-back { border-radius: 0 0 16px 16px; }
+}
+
+/* Profilo: riquadro foto arrotondato */
+.profile-photo-wrap { border-radius: 18px !important; overflow: hidden; }
+/* la cornice toglie spazio: card un po' più alte e retro più compatto */
+@media (hover: hover) {
+  .flip-card { height: 440px; }
+  .flip-back { padding: 1.6rem 1.6rem 1.4rem; }
+  .flip-back-desc { -webkit-line-clamp: 6; }
+  .flip-back-cta { margin-top: .8rem; }
+}
