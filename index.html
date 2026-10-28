@@ -4,94 +4,19 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow"><!-- solo anteprima: togliere nella versione su Hostinger -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MI.LAW – Legal Network | Milano</title>
-  <meta name="description" content="MI.LAW Legal Network – Una rete di avvocati autonomi che condividono competenze, esperienza e visione.">
+  <title>MI.LAW Legal Network · Avvocati a Milano, Corso Vercelli 11</title>
+  <meta name="description" content="MI.LAW Legal Network, Corso Vercelli 11 a Milano: contratti, dati personali, tecnologia e intelligenza artificiale, consumatori, società e immobili. Raccontaci il tuo caso.">
   <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="tema.css">
 </head>
 <body>
 
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">
-        <img src="img/logomilaw.png" alt="MI.LAW Legal Network">
-      </div>
-      <div class="preloader-bar-wrap">
-        <div class="preloader-bar"></div>
-      </div>
-      <p class="preloader-label">Legal Network &middot; Milano</p>
-    </div>
+  <div class="preview-note">
+    <span>Anteprima del sito. Le parti sottolineate a puntini sono da confermare con lo studio.</span>
+    <button type="button" onclick="this.parentElement.remove()">Chiudi</button>
   </div>
 
-
-  <!-- COOKIE BANNER -->
-  <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Informativa cookie">
-    <div class="cookie-inner">
-      <div class="cookie-text">
-        <p class="cookie-title">Rispettiamo la tua privacy</p>
-        <p class="cookie-body">Utilizziamo cookie tecnici necessari al funzionamento del sito e, previo consenso, cookie analitici per migliorare l'esperienza di navigazione. Nessun dato viene ceduto a terzi per finalità pubblicitarie. Per maggiori informazioni consulta la nostra <a href="#">Privacy Policy</a>.</p>
-      </div>
-      <div class="cookie-actions">
-        <button class="cookie-btn cookie-customize" id="cookie-customize">Personalizza</button>
-        <button class="cookie-btn cookie-reject"    id="cookie-reject">Rifiuta tutto</button>
-        <button class="cookie-btn cookie-accept"    id="cookie-accept">Accetta tutto</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- COOKIE MODAL (Personalizza) -->
-  <div id="cookie-modal" role="dialog" aria-modal="true" aria-label="Preferenze cookie" style="display:none;">
-    <div class="cookie-modal-box">
-      <div class="cookie-modal-header">
-        <h3>Preferenze cookie</h3>
-        <button class="a11y-close" id="cookie-modal-close" aria-label="Chiudi">✕</button>
-      </div>
-      <div class="cookie-modal-body">
-
-        <div class="cookie-row">
-          <div>
-            <p class="cookie-cat-title">Cookie tecnici necessari</p>
-            <p class="cookie-cat-desc">Indispensabili per il funzionamento del sito. Non possono essere disattivati.</p>
-          </div>
-          <label class="a11y-switch">
-            <input type="checkbox" checked disabled aria-label="Cookie tecnici sempre attivi">
-            <span class="slider"></span>
-          </label>
-        </div>
-
-        <div class="cookie-row">
-          <div>
-            <p class="cookie-cat-title">Cookie analitici</p>
-            <p class="cookie-cat-desc">Ci aiutano a capire come viene utilizzato il sito (es. pagine visitate, tempo di permanenza).</p>
-          </div>
-          <label class="a11y-switch">
-            <input type="checkbox" id="pref-analytics" aria-label="Cookie analitici">
-            <span class="slider"></span>
-          </label>
-        </div>
-
-        <div class="cookie-row" style="border-bottom:none;">
-          <div>
-            <p class="cookie-cat-title">Cookie di profilazione</p>
-            <p class="cookie-cat-desc">Utilizzati per mostrare contenuti personalizzati in base alle preferenze dell'utente.</p>
-          </div>
-          <label class="a11y-switch">
-            <input type="checkbox" id="pref-profiling" aria-label="Cookie di profilazione">
-            <span class="slider"></span>
-          </label>
-        </div>
-
-      </div>
-      <div class="cookie-modal-footer">
-        <button class="cookie-btn cookie-accept" id="cookie-save-prefs">Salva preferenze</button>
-      </div>
-    </div>
-    <div class="cookie-modal-overlay" id="cookie-modal-overlay"></div>
-  </div>
-
-
-  <!-- NAVBAR -->
+  <!-- NAVBAR (come nel sito attuale) -->
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
@@ -99,7 +24,7 @@
              onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
         <span class="logo-text" style="display:none;">MI.LAW <span>Legal Network</span></span>
       </a>
-      <button class="hamburger" id="hamburger" aria-label="Apri menu">
+      <button class="hamburger" id="hamburger" aria-label="Apri menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
@@ -114,60 +39,111 @@
 
   <main class="page-content">
 
-    <!-- HERO COVER — immagine Milano a tutta pagina -->
+    <!-- 1. HERO con foto di Milano -->
     <section class="hero-cover">
-      <img src="img/milano.png" alt="Piazza Duomo di Milano — sede di MI.LAW Legal Network" class="hero-cover-img">
+      <img class="hero-cover-img"
+           src="https://images.unsplash.com/photo-1610016302534-6f67f1c968d8?w=2000&q=80&auto=format&fit=crop"
+           alt="Il Duomo di Milano">
       <div class="hero-cover-overlay"></div>
       <div class="hero-cover-content">
         <span class="hero-cover-tag">MI.LAW · Legal Network · Milano</span>
-        <h1>La forza<br>dell'indipendenza —<br><em>il valore<br>della rete.</em></h1>
+        <h1>Più competenze,<br><em>una sola porta.</em></h1>
+        <p class="hero-cover-sub">Una rete di avvocati in Corso Vercelli 11. Raccontaci cosa ti è successo: ti risponde chi conosce davvero la tua materia.</p>
         <div class="hero-cover-actions">
-          <a href="chi-siamo.html" class="btn btn-light">Scopri il Network</a>
-          <a href="contatti.html" class="btn btn-teal">Contattaci</a>
+          <a href="contatti.html" class="btn btn-teal">Racconta il tuo caso</a>
+          <a href="tel:+390240701955" class="btn btn-light">Chiama 02 40.70.19.55</a>
         </div>
       </div>
     </section>
 
-    <!-- IL NOSTRO APPROCCIO -->
-    <section class="section section-alt">
+    <!-- 2. SITUAZIONI: scegli la tua, il modulo nei Contatti si prepara da solo -->
+    <section class="section" id="situazioni">
       <div class="container">
         <div class="section-header fade-in">
-          <span class="section-tag">Il nostro approccio</span>
-          <div class="section-line">
-            <h2>Competenza. Indipendenza. <em>Sinergia.</em></h2>
-          </div>
+          <span class="section-tag">Ti riconosci?</span>
+          <div class="section-line"><h2>Di solito ci scrivono <em>quando…</em></h2></div>
         </div>
-
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2px;">
-
-          <div class="area-card fade-in">
-            <h3>Diritto Civile &amp; Societario</h3>
-            <p class="area-desc">Assistenza qualificata nei principali ambiti del diritto civile, societario e commerciale.</p>
-          </div>
-
-          <div class="area-card fade-in">
-            <h3>Diritto Digitale &amp; AI</h3>
-            <p class="area-desc">Information Technology, Intelligenza Artificiale, Data Protection e governance dei dati.</p>
-          </div>
-
-          <div class="area-card fade-in">
-            <h3>Approccio Multidisciplinare</h3>
-            <p class="area-desc">Un network che integra settori tradizionali e aree dell'innovazione in modo sinergico.</p>
-          </div>
-
+        <div class="sit-grid">
+          <a class="sit fade-in" href="contatti.html?area=contratti">
+            <span class="what">Devi firmare un contratto e alcune clausole non ti convincono.</span>
+            <span class="who">Contratti e diritto civile</span><span class="go">Scrivici →</span></a>
+          <a class="sit fade-in" href="contatti.html?area=consumatori">
+            <span class="what">Un acquisto online è arrivato rotto o non è mai arrivato, e il venditore non risponde.</span>
+            <span class="who">Tutela dei consumatori</span><span class="go">Scrivici →</span></a>
+          <a class="sit fade-in" href="contatti.html?area=dati">
+            <span class="what">La tua azienda ha perso dei dati o ha subito un attacco informatico.</span>
+            <span class="who">Protezione dei dati</span><span class="go">Scrivici →</span></a>
+          <a class="sit fade-in" href="contatti.html?area=ai">
+            <span class="what">Vuoi usare l'intelligenza artificiale in azienda e capire cosa chiede l'AI Act.</span>
+            <span class="who">Tecnologia e intelligenza artificiale</span><span class="go">Scrivici →</span></a>
+          <a class="sit fade-in" href="contatti.html?area=societa">
+            <span class="what">Stai aprendo una società, o entrando in una con dei soci.</span>
+            <span class="who">Diritto societario</span><span class="go">Scrivici →</span></a>
+          <a class="sit fade-in" href="contatti.html?area=immobili">
+            <span class="what">Compri, vendi o affitti casa e vuoi un contratto fatto bene.</span>
+            <span class="who">Immobiliare</span><span class="go">Scrivici →</span></a>
         </div>
-
-        <div style="margin-top:3rem; text-align:center;" class="fade-in">
+        <div class="sit-foot fade-in">
+          <p>Non trovi la tua situazione? <a href="contatti.html">Scrivici lo stesso</a>: ti diciamo se possiamo aiutarti.</p>
           <a href="aree.html" class="btn btn-secondary">Tutte le aree di attività</a>
         </div>
       </div>
     </section>
 
+    <!-- 3. COME FUNZIONA (fondo verde acqua chiaro) -->
+    <section class="section section-acqua">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-tag">Come funziona</span>
+          <div class="section-line"><h2>Dal primo messaggio al preventivo, <em>senza sorprese.</em></h2></div>
+        </div>
+        <ol class="steps">
+          <li class="fade-in"><span class="n">1</span><h3>Ci scrivi o ci chiami</h3>
+            <p>Bastano poche righe: cosa è successo e cosa vorresti ottenere. Ti rispondiamo <span class="tbc" title="Da confermare con lo studio">entro un giorno lavorativo</span>.</p></li>
+          <li class="fade-in"><span class="n">2</span><h3>Ne parliamo</h3>
+            <p>Un primo colloquio, in studio o <span class="tbc" title="Da confermare con lo studio">in videochiamata</span>, per capire la tua situazione.</p></li>
+          <li class="fade-in"><span class="n">3</span><h3>Ricevi un preventivo scritto</h3>
+            <p>Cosa faremo, in quanto tempo, quanto costerà. Tutto per iscritto, prima di iniziare.</p></li>
+          <li class="fade-in"><span class="n">4</span><h3>Decidi tu</h3>
+            <p>Se il preventivo ti convince, iniziamo. Altrimenti finisce lì, senza impegno.</p></li>
+        </ol>
+      </div>
+    </section>
 
+    <!-- 4. LA RETE: breve, rimanda a Chi siamo e Team -->
+    <section class="section">
+      <div class="container rete-short">
+        <div class="fade-in">
+          <span class="section-tag">Il network</span>
+          <h2>Ognuno sulla sua materia, <em>tutti allo stesso tavolo.</em></h2>
+        </div>
+        <div class="fade-in">
+          <p>Ogni professionista di MI.LAW è autonomo e segue le materie che conosce a fondo. Quando il tuo caso ne tocca più d'una, per esempio una startup che ha bisogno di accordi tra soci, di un'informativa privacy e di capire l'AI Act, lavoriamo insieme. Tu hai un solo riferimento e racconti la tua storia una volta sola.</p>
+          <div class="rete-links">
+            <a href="team.html" class="btn btn-secondary">Conosci il team</a>
+            <a href="chi-siamo.html" class="link-acqua">Chi siamo →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. INVITO FINALE (fascia verde acqua) -->
+    <section class="cta-acqua">
+      <div class="container cta-inner fade-in">
+        <div>
+          <h2>Raccontaci cosa è successo.</h2>
+          <p>Leggiamo ogni richiesta con riservatezza. Scriverci non ti impegna a nulla.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="contatti.html" class="btn btn-ink">Scrivici</a>
+          <a href="tel:+390240701955" class="cta-tel">02 40.70.19.55</a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (come nel sito attuale, in verde scuro invece che nero) -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -177,7 +153,7 @@
                  onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
             <span class="logo-text" style="display:none;">MI.LAW <span>Legal Network</span></span>
           </a>
-          <p>Una rete di avvocati autonomi uniti da un obiettivo comune: soluzioni legali efficaci e su misura.</p>
+          <p>Una rete di avvocati autonomi in Corso Vercelli 11, Milano. Iscritti all'Ordine degli Avvocati di <span class="tbc">Milano</span>.</p>
         </div>
         <div class="footer-col">
           <h4>Navigazione</h4>
@@ -193,115 +169,30 @@
           <h4>Contatti</h4>
           <ul>
             <li><a href="https://maps.google.com?q=Corso+Vercelli+11+Milano" target="_blank" rel="noopener">Corso Vercelli 11, 20144 Milano</a></li>
-            <li><a href="tel:024070195502">02 – 40.70.19.55</a></li>
+            <li><a href="tel:+390240701955">02 – 40.70.19.55</a></li>
             <li><a href="mailto:info@milawln.com">info@milawln.com</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2025 MI.LAW Legal Network – P.IVA da inserire – Tutti i diritti riservati</p>
+        <p>© 2026 MI.LAW Legal Network – P.IVA <span class="tbc">da inserire</span> – Tutti i diritti riservati</p>
         <p><a href="#">Privacy Policy</a> · <a href="#">Cookie Policy</a></p>
       </div>
     </div>
   </footer>
 
+  <nav class="callbar" aria-label="Contatto rapido">
+    <a href="tel:+390240701955">Chiama</a>
+    <a href="contatti.html">Scrivici</a>
+  </nav>
+
   <script>
-    // Hamburger
-    document.getElementById('hamburger').addEventListener('click', function() {
-      document.getElementById('nav-links').classList.toggle('open');
-    });
-
-    // Scroll fade-in
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
-
-    // ── Preloader (solo prima visita per sessione) ──
-    (function () {
-      const preloader = document.getElementById('preloader');
-      const already   = sessionStorage.getItem('milaw_visited');
-
-      if (already) {
-        // Già visitato: nascondi immediatamente senza animazione
-        preloader.style.display = 'none';
-      } else {
-        // Prima visita: mostra il preloader e registra la sessione
-        document.body.style.overflow = 'hidden';
-
-        window.addEventListener('load', function () {
-          setTimeout(function () {
-            preloader.classList.add('preloader-hide');
-            document.body.style.overflow = '';
-            sessionStorage.setItem('milaw_visited', '1');
-          }, 2400);
-        });
-      }
-    })();
-
-
-    // ── Cookie Banner ──
-    (function () {
-      const COOKIE_KEY = 'milaw_cookie_consent';
-      const banner     = document.getElementById('cookie-banner');
-      const modal      = document.getElementById('cookie-modal');
-
-      // Se già scelto, non mostrare
-      if (localStorage.getItem(COOKIE_KEY)) {
-        banner.style.display = 'none';
-        return;
-      }
-
-      // Mostra banner con leggero ritardo (dopo il preloader)
-      setTimeout(function () {
-        banner.classList.add('cookie-visible');
-      }, 2900);
-
-      function hideBanner() {
-        banner.classList.remove('cookie-visible');
-        setTimeout(() => banner.style.display = 'none', 400);
-      }
-
-      // Accetta tutto
-      document.getElementById('cookie-accept').addEventListener('click', function () {
-        localStorage.setItem(COOKIE_KEY, JSON.stringify({ analytics: true, profiling: true }));
-        hideBanner();
-      });
-
-      // Rifiuta tutto
-      document.getElementById('cookie-reject').addEventListener('click', function () {
-        localStorage.setItem(COOKIE_KEY, JSON.stringify({ analytics: false, profiling: false }));
-        hideBanner();
-      });
-
-      // Personalizza — apri modale
-      document.getElementById('cookie-customize').addEventListener('click', function () {
-        modal.style.display = 'flex';
-        document.getElementById('cookie-modal-close').focus();
-      });
-
-      // Chiudi modale
-      function closeModal() { modal.style.display = 'none'; }
-      document.getElementById('cookie-modal-close').addEventListener('click', closeModal);
-      document.getElementById('cookie-modal-overlay').addEventListener('click', closeModal);
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
-      });
-
-      // Salva preferenze personalizzate
-      document.getElementById('cookie-save-prefs').addEventListener('click', function () {
-        const prefs = {
-          analytics: document.getElementById('pref-analytics').checked,
-          profiling:  document.getElementById('pref-profiling').checked
-        };
-        localStorage.setItem(COOKIE_KEY, JSON.stringify(prefs));
-        closeModal();
-        hideBanner();
-      });
-    })();
-
+    var hamburger = document.getElementById('hamburger'), navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', function () { var o = navLinks.classList.toggle('open'); hamburger.setAttribute('aria-expanded', o); });
+    var obs = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.1 }) : null;
+    document.querySelectorAll('.fade-in').forEach(function (el) { obs ? obs.observe(el) : el.classList.add('visible'); });
   </script>
-
 </body>
 </html>

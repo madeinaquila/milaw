@@ -1,0 +1,174 @@
+/* ============================================================
+   MI.LAW — tema del sito (nato dalla nuova homepage v3)
+   Si carica dopo style.css in tutte le pagine.
+   Più bianco e verde acqua (#7FC6BF), quasi niente nero.
+   ============================================================ */
+
+:root {
+  --acqua:       #7fc6bf;   /* il verde acqua del logo */
+  --acqua-chiaro:#e9f5f3;   /* fondo tenue per alternare le sezioni */
+  --acqua-scuro: #245955;   /* testo e link verde acqua leggibili su bianco */
+}
+
+/* Dati ancora da confermare con lo studio */
+.tbc { text-decoration: underline dotted var(--acqua-scuro) 2px; text-underline-offset: 4px; cursor: help; }
+footer .tbc { text-decoration-color: var(--acqua); }
+
+.preview-note {
+  background: var(--acqua-chiaro); color: var(--text-sub); font-size: 0.86rem;
+  padding: 0.6rem 2.5rem; display: flex; gap: 1rem; justify-content: space-between; align-items: center;
+}
+.preview-note button { background: none; border: 0; color: var(--acqua-scuro); text-decoration: underline; cursor: pointer; font: inherit; }
+
+/* Il corsivo verde acqua resta leggibile sul bianco */
+.section em { color: var(--acqua-scuro); }
+
+/* ── Hero ── */
+.hero-cover { background: #4a5553; }
+.hero-cover-content { max-width: 900px; }
+.hero-cover-content h1 { max-width: 16ch; }
+.hero-cover-sub { color: rgba(255,255,255,0.92); font-size: 1.12rem; line-height: 1.7; max-width: 44ch; margin-top: 1.6rem; }
+.hero-cover-overlay {
+  background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.1) 100%);
+}
+
+/* ── Situazioni ── */
+.sit-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--border); border: 1px solid var(--border);
+}
+.sit {
+  background: var(--white); padding: 2.2rem 2.2rem 2rem;
+  display: flex; flex-direction: column; gap: 0.7rem; position: relative; transition: background .28s ease;
+}
+.sit::before { content: ''; position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--acqua); transition: width .4s ease; }
+.sit .what { font-family: var(--serif); font-size: 1.38rem; line-height: 1.32; color: var(--text); }
+.sit .who { font-size: 0.86rem; color: var(--text-lt); }
+.sit .go {
+  margin-top: auto; padding-top: 0.6rem; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--acqua-scuro); transition: transform .28s;
+}
+.sit:hover { background: var(--acqua-chiaro); }
+.sit:hover::before { width: 100%; }
+.sit:hover .go { transform: translateX(4px); }
+.sit-foot { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: 1.2rem 2rem; align-items: center; justify-content: space-between; }
+.sit-foot a:not(.btn) { color: var(--acqua-scuro); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Come funziona su verde acqua chiaro ── */
+.section-acqua { background: var(--acqua-chiaro); }
+.section-acqua .section-line::after { background: rgba(36,89,85,0.2); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.steps li { list-style: none; background: var(--white); padding: 2rem 1.8rem; border-top: 3px solid var(--acqua); }
+.steps .n { font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: var(--acqua-scuro); font-style: italic; }
+.steps h3 { margin: 0.9rem 0 0.5rem; font-size: 1.4rem; }
+.steps p { font-size: 0.95rem; line-height: 1.75; }
+
+/* ── La rete, in breve ── */
+.rete-short { display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; align-items: start; }
+.rete-short h2 { margin-top: 0.2rem; }
+.rete-links { margin-top: 2rem; display: flex; gap: 1.6rem; align-items: center; flex-wrap: wrap; }
+.link-acqua { color: var(--acqua-scuro); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+.link-acqua:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ── Fascia finale verde acqua ── */
+.cta-acqua { background: var(--acqua); padding: 5rem 1.5rem; }
+.cta-inner { display: flex; flex-wrap: wrap; gap: 2rem 3rem; align-items: center; justify-content: space-between; }
+.cta-acqua h2 { color: #10302e; }
+.cta-acqua p { color: #17403d; margin-top: 0.6rem; }
+.cta-actions { display: flex; gap: 1.6rem; align-items: center; flex-wrap: wrap; }
+.btn-ink { background: var(--white); color: var(--acqua-scuro); border-color: var(--white); }
+.btn-ink:hover { background: var(--acqua-scuro); color: var(--white); border-color: var(--acqua-scuro); }
+.cta-tel { font-family: var(--serif); font-size: 1.7rem; color: #10302e; }
+.cta-tel:hover { text-decoration: underline; text-underline-offset: 5px; }
+
+/* ── Piè di pagina in verde scuro invece che nero ── */
+footer { background: var(--acqua-scuro) !important; }
+
+/* ── Barra di chiamata su telefono ── */
+.callbar { display: none; }
+
+/* il menu chiuso non deve affacciarsi sopra la barra di anteprima */
+@media (max-width: 820px) {
+  .nav-links { visibility: hidden; transition: transform .35s ease, visibility 0s .35s; }
+  .nav-links.open { visibility: visible; transition: transform .35s ease; }
+}
+
+@media (max-width: 960px) {
+  .sit-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .rete-short { grid-template-columns: 1fr; gap: 1.6rem; }
+}
+
+@media (max-width: 600px) {
+  .preview-note { padding: 0.6rem 1.25rem; }
+  .sit-grid, .steps { grid-template-columns: 1fr; }
+  .sit { padding: 1.6rem 1.4rem; }
+  .sit .what { font-size: 1.22rem; }
+  .hero-cover-sub { font-size: 1rem; }
+  .cta-acqua { padding: 3.5rem 1.25rem; }
+  .callbar {
+    display: grid; grid-template-columns: 1fr 1fr; position: fixed; inset: auto 0 0 0; z-index: 200;
+    background: #fff; box-shadow: 0 -1px 0 #e2e2e0;
+  }
+  .callbar a { padding: 1rem; text-align: center; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  .callbar a + a { background: var(--acqua-scuro); color: #fff; }
+  footer { padding-bottom: 5rem; }
+}
+
+
+/* ============================================================
+   Tutto il sito: via il nero, dentro bianco e verde acqua
+   ============================================================ */
+
+/* Intestazione delle pagine interne */
+.page-hero { background: var(--acqua-chiaro); color: var(--text); }
+.page-hero h1 { color: var(--text); }
+.page-hero h1 em, .page-hero em { color: var(--acqua-scuro); }
+.page-hero .page-hero-sub { color: var(--acqua-scuro); }
+
+/* Corsivi e link verde acqua leggibili sul bianco */
+main em { color: var(--acqua-scuro); }
+.hero-cover em { color: var(--acqua); }
+.privacy-row a { color: var(--acqua-scuro); }
+
+/* Bottoni */
+.btn-primary { background: var(--acqua-scuro); border-color: var(--acqua-scuro); color: var(--white); }
+.btn-primary:hover { background: var(--acqua); border-color: var(--acqua); color: #0f2e2c; }
+.btn-light:hover, .btn-teal:hover { background: var(--acqua-scuro); border-color: var(--acqua-scuro); color: var(--white); }
+.cookie-accept { background: var(--acqua-scuro); border-color: var(--acqua-scuro); }
+
+/* Card delle aree: al passaggio verde acqua chiaro invece del nero */
+.area-card:hover { background: var(--acqua-chiaro); }
+.area-card:hover h3 { color: var(--text); }
+.area-card:hover .area-desc { color: var(--text-sub); }
+.area-card:hover .area-num { color: var(--acqua-scuro); }
+
+/* Team: il retro delle card in verde scuro */
+.flip-back { background: var(--acqua-scuro); }
+.flip-back-desc { color: rgba(255,255,255,0.86); }
+.flip-tag { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+/* Pagina profilo */
+.profile-hero { background: var(--acqua-chiaro) !important; }
+.profile-hero h1 { color: var(--text) !important; }
+.profile-back { color: var(--acqua-scuro) !important; }
+.profile-role { color: var(--acqua-scuro) !important; }
+.profile-photo-wrap { background: #cfd8d6 !important; border-color: #c2cdca !important; }
+.profile-photo-placeholder { color: rgba(17,17,17,0.45) !important; }
+.profile-lang-tag { color: var(--acqua-scuro) !important; border-color: rgba(36,89,85,0.3) !important; }
+
+/* Aree: tre colonne, l'ultima card occupa lo spazio che resta */
+.areas-grid { grid-template-columns: repeat(3, 1fr); }
+.areas-grid .area-card:last-child:nth-child(3n+2) { grid-column: span 2; }
+.areas-grid .area-card:last-child:nth-child(3n+1) { grid-column: span 3; }
+@media (max-width: 900px) {
+  .areas-grid { grid-template-columns: 1fr 1fr; }
+  .areas-grid .area-card:last-child { grid-column: auto !important; }
+}
+@media (max-width: 600px) { .areas-grid { grid-template-columns: 1fr; } }
+
+/* Contatti: telefono ed email leggibili */
+.contact-value a, a.contact-value { color: var(--acqua-scuro); }
+/* Contatti: niente scorrimento orizzontale sul telefono */
+.contact-grid > * { min-width: 0; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
