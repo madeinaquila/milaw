@@ -1581,3 +1581,29 @@ html.a11y-focus *:focus {
   .team-grid { grid-template-columns: 1fr; }
   .flip-card { height: 380px; }
 }
+
+/* ══════════════════════════════════════════
+   TEAM SU TELEFONO E TABLET (niente mouse)
+   La card non si gira: foto e nome sopra,
+   dettagli e "Scopri di più" sempre visibili sotto.
+   ══════════════════════════════════════════ */
+@media (hover: none) {
+  .flip-card { height: auto; overflow: visible; }
+  .flip-card-inner { position: static; display: flex; flex-direction: column; }
+
+  .flip-front {
+    position: relative;
+    height: 300px;
+    opacity: 1 !important;
+  }
+  .flip-front::before { display: none; }
+
+  .flip-back {
+    position: static;
+    clip-path: none !important;
+    padding: 1.4rem 1.6rem 1.6rem;
+    gap: 0.8rem;
+  }
+  .flip-back-desc { -webkit-line-clamp: 4; }
+  .flip-back-cta { margin-top: 0.6rem; }
+}
