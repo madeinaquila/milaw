@@ -123,6 +123,8 @@
                       <option value="data-protection">Data Protection</option>
                       <option value="diritto-commerciale">Diritto e Contrattualistica Commerciale</option>
                       <option value="consumer-law">Consumer Law</option>
+                      <option value="societario">Diritto Societario</option>
+                      <option value="immobiliare">Immobiliare</option>
                       <option value="altro">Altro</option>
                     </select>
                   </div>
@@ -233,6 +235,18 @@
     hamburger.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); hamburger.setAttribute('aria-expanded', open); });
     const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // Arrivi da una situazione in homepage: l'area è già scelta
+    (function () {
+      var map = { contratti: 'diritto-commerciale', consumatori: 'consumer-law', dati: 'data-protection',
+                  ai: 'it-ai', digitale: 'diritto-digitale', societa: 'societario', immobili: 'immobiliare' };
+      var area = new URLSearchParams(location.search).get('area');
+      if (area && map[area]) {
+        document.getElementById('oggetto').value = map[area];
+        var f = document.getElementById('contact-form');
+        f.scrollIntoView({ block: 'center' });
+      }
+    })();
 
     // Form submit
     document.getElementById('contact-form').addEventListener('submit', function(e) {
