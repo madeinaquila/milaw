@@ -427,3 +427,59 @@ main em { color: var(--acqua-scuro); }
   .cta-acqua { padding: 0 1rem 3.5rem; }
   .cta-acqua .cta-inner { padding: 2.4rem 1.6rem; border-radius: var(--r-card); }
 }
+
+/* ============================================================
+   Leggibilità (WCAG AA): testo lungo senza grazie, pesi pieni,
+   etichette più grandi e contrastate, niente testo minuscolo
+   ============================================================ */
+body { color: #1f1f1f; }
+p { color: #333; }
+
+/* Il corsivo/serif resta solo per i titoli: i paragrafi lunghi vanno in DM Sans */
+.profile-bio, .profile-bio p {
+  font-family: var(--sans) !important; font-weight: 400 !important;
+  font-size: 1.08rem !important; line-height: 1.8 !important; color: #2a2a2a !important;
+}
+.profile-bio p + p { margin-top: 1.2rem !important; }
+
+/* Etichette maiuscole: più grandi e in verde acqua scuro (contrasto oltre 7:1) */
+.section-tag, .sidebar-block-title, .contact-label, .page-hero .page-hero-sub,
+.profile-role, .profile-back, .profile-lang-tag {
+  font-size: 0.8rem !important; letter-spacing: 0.16em !important; color: var(--acqua-scuro) !important; font-weight: 500 !important;
+}
+.hero-cover-tag { font-size: 0.8rem !important; color: #cfeeea !important; }
+.cta-acqua .section-tag { color: #0f2e2c !important; }
+
+/* Profilo: anni e dettagli della formazione */
+.formation-year { font-family: var(--sans) !important; font-size: 0.92rem !important; color: var(--acqua-scuro) !important; font-weight: 500 !important; }
+.formation-desc, .formation-list li { font-size: 0.98rem !important; }
+.albo-note, .sidebar-email { font-size: 0.95rem !important; color: #333 !important; }
+.sidebar-tag { font-size: 0.85rem !important; color: #222 !important; }
+
+/* Testi piccoli: almeno 14-15px e ben scuri */
+.form-note, .privacy-row label, .contact-value, .tile-per, .sit .who, .team-more p { font-size: 0.95rem !important; color: #3a3a3a !important; }
+.form-group label { font-size: 0.8rem !important; color: #2a2a2a !important; }
+.form-group input::placeholder, .form-group textarea::placeholder { color: #6b6b6b; }
+.flip-role { font-size: 0.72rem !important; color: #cfeeea !important; }
+.flip-front .flip-areas { font-size: 0.88rem !important; color: rgba(255,255,255,.9) !important; }
+.flip-tag { font-size: 0.7rem !important; }
+.area-desc { color: #3a3a3a !important; }
+
+/* Piè di pagina: testo più chiaro sul verde scuro */
+footer p, footer li, footer a { color: rgba(255,255,255,.88) !important; }
+footer h4 { color: #cfeeea !important; font-size: 0.78rem !important; }
+.footer-bottom p, .footer-bottom a { font-size: 0.85rem !important; color: rgba(255,255,255,.75) !important; }
+
+/* Menu: un filo più grande e più scuro */
+.nav-links a { font-size: 0.8rem; color: #2f2f2f; }
+
+/* Link riconoscibili anche senza colore */
+main p a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
+/* ultimi ritocchi di contrasto e dimensione */
+.form-title em { color: var(--acqua-scuro) !important; }
+.map-block a { color: var(--acqua-scuro) !important; text-decoration: underline; }
+.section-tag, .sidebar-block-title, .contact-label, .page-hero .page-hero-sub,
+.profile-role, .profile-back, .profile-lang-tag, .nav-links a, .settore-tag { font-size: 0.85rem !important; }
+.btn, .sit .go, .tile-more a, .link-acqua { font-size: 0.82rem !important; }
+.profile-photo-placeholder { font-size: 0.8rem !important; }
+.profile-bio { max-width: 66ch; }
