@@ -516,3 +516,30 @@ main p a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
   .steps li:last-child { border-bottom: 0 !important; padding-bottom: 0; }
   .steps .n { font-size: 3rem; }
 }
+
+/* ============================================================
+   Chi siamo, senza immagini: profilo, pannello visione, motto
+   ============================================================ */
+.cs2-profilo { max-width: 860px; }
+.cs2-lead { font-size: 1.3rem !important; line-height: 1.65 !important; color: #1f1f1f !important; margin: 1rem 0 1.2rem; max-width: none; }
+.cs2-profilo p { max-width: none; }
+.cs2-panel {
+  margin-top: 3.5rem; background: var(--acqua); border-radius: 28px; padding: 3rem;
+  display: grid; grid-template-columns: 1fr 1.15fr; gap: 3rem; align-items: center;
+}
+.cs2-panel .section-tag { color: #0f2e2c !important; }
+.cs2-panel h3 { font-size: 2.1rem; line-height: 1.15; color: #0f2e2c; margin: .7rem 0 .9rem; }
+.cs2-panel p { color: #173f3c !important; max-width: none; }
+.cs2-chips { list-style: none; display: flex; flex-wrap: wrap; gap: .6rem; }
+.cs2-chips li { background: #fff; border-radius: 999px; padding: .65rem 1.15rem; font-size: .98rem; color: #1f1f1f; }
+.cs2-motto {
+  background: var(--acqua-scuro); border-radius: 28px; padding: 4.5rem 2rem; text-align: center;
+}
+.cs2-motto p { font-family: var(--serif) !important; font-size: clamp(2.2rem, 4.4vw, 3.6rem) !important; line-height: 1.12 !important; color: #fff !important; max-width: none; margin: 0 auto; }
+.cs2-motto em { color: var(--acqua) !important; }
+@media (max-width: 960px) {
+  .cs2-panel { grid-template-columns: 1fr; gap: 2rem; padding: 2.4rem 1.8rem; }
+}
+@media (max-width: 600px) {
+  .cs2-motto { padding: 3rem 1.4rem; }
+}
