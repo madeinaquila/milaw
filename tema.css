@@ -315,3 +315,115 @@ main em { color: var(--acqua-scuro); }
   .flip-back-desc { -webkit-line-clamp: 6; }
   .flip-back-cta { margin-top: .8rem; }
 }
+
+/* ============================================================
+   Stesso linguaggio in tutto il sito: angoli arrotondati,
+   bottoni ed etichette a pillola
+   ============================================================ */
+:root { --r-card: 22px; --r-inner: 16px; --r-field: 12px; }
+
+/* Bottoni a pillola */
+.btn, .btn-primary, .btn-secondary, .btn-light, .btn-teal, .btn-ink, .cookie-btn { border-radius: 999px; }
+.form-submit .btn { border-radius: 999px; }
+
+/* Home: situazioni come card separate */
+.sit-grid { gap: 20px; background: none; border: 0; }
+.sit { border-radius: var(--r-card); transition: box-shadow .35s ease, transform .35s ease; }
+.sit::before { display: none; }
+.sit::after { border-radius: var(--r-card); }
+@media (hover: hover) {
+  .sit:hover { box-shadow: 0 18px 40px -18px rgba(31,77,74,.35); transform: translateY(-4px); }
+}
+/* Home: passaggi */
+.steps li { border-radius: var(--r-card); border-top: 0; box-shadow: inset 0 3px 0 var(--acqua); }
+
+/* Chi siamo: valori */
+.valori-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 3rem; }
+.valore-card { border-radius: var(--r-card); }
+.valore-card { border-color: transparent; }
+.valore-card::before { display: none; }
+.section-alt .valore-card { transition: box-shadow .35s ease, transform .35s ease; }
+@media (hover: hover) {
+  .valore-card:hover { box-shadow: 0 18px 40px -18px rgba(31,77,74,.3); transform: translateY(-4px); background: var(--white); }
+}
+
+/* Aree: settori come pillole */
+.settore-tag {
+  display: inline-block; border: 1px solid rgba(36,89,85,.35); color: var(--acqua-scuro); background: var(--white);
+  padding: .55rem 1.2rem; border-radius: 999px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; font-family: var(--sans);
+}
+
+/* Contatti: modulo, orari e mappa */
+.form-wrapper { border-radius: var(--r-card); border: 0; background: #f3f6f5; }
+.form-group input, .form-group textarea, .form-group select { border-radius: var(--r-field); }
+.orari-block { border-radius: var(--r-inner); border-left: 0; background: var(--acqua-chiaro); }
+.map-block { border-radius: var(--r-card); border: 0; background: var(--acqua-chiaro); }
+.privacy-row input[type="checkbox"] { border-radius: 4px; }
+
+/* Profilo: blocchi laterali in un'unica card arrotondata */
+.profile-sidebar { border-radius: var(--r-card); overflow: hidden; }
+.sidebar-tag { border-radius: 999px !important; }
+
+/* Banner dei cookie */
+.cookie-modal-box { border-radius: var(--r-card); }
+/* bottoni sempre visibili nelle sezioni (l'animazione serviva solo al vecchio hero) */
+.section .btn-group { opacity: 1; animation: none; }
+
+/* ============================================================
+   Forma arrotondata su tutto il sito (stesso linguaggio di Aree e Team)
+   Card: 22px · riquadri interni: 16px · campi: 12px · bottoni: a pillola
+   ============================================================ */
+:root { --r-card: 22px; --r-inner: 16px; --r-field: 12px; }
+
+/* Bottoni a pillola */
+.btn, .tiles-nav button, .callbar a { border-radius: 999px; }
+.callbar a { border-radius: 0; }
+.cookie-btn { border-radius: 999px; }
+
+/* Home — situazioni: card separate invece della griglia a righe */
+.sit-grid { gap: 16px; background: none; border: 0; }
+.sit { border-radius: var(--r-card); box-shadow: 0 1px 0 rgba(36,89,85,.06); }
+.sit::before { display: none; }
+@media (hover: hover) {
+  .sit { transition: background .28s ease, box-shadow .35s ease, transform .35s ease; }
+  .sit:hover { box-shadow: 0 18px 40px -20px rgba(31,77,74,.35); transform: translateY(-4px); }
+}
+#situazioni { background: #f3f6f5; }
+
+/* Home — come funziona */
+.steps li { border-radius: var(--r-card); border-top: 0; position: relative; overflow: hidden; }
+.steps li::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--acqua); }
+
+/* Home — fascia finale: un riquadro arrotondato dentro la pagina */
+.cta-acqua { background: var(--white); padding: 0 1.5rem 5rem; }
+.cta-acqua .cta-inner { background: var(--acqua); border-radius: 28px; padding: 3.5rem 3.5rem; max-width: 1200px; }
+
+/* Chi siamo — valori */
+.valori-grid { gap: 16px !important; background: none !important; border: 0 !important; }
+.valore-card { border-radius: var(--r-card); border: 0 !important; background: var(--white); }
+.valore-card::before { display: none; }
+.valore-card:hover { background: var(--acqua-chiaro); }
+.valore-card:hover h3 { color: var(--acqua-scuro); }
+.section-alt { background: #f3f6f5; }
+
+/* Contatti */
+.form-wrapper { border-radius: var(--r-card); border: 0; background: #f3f6f5; }
+.form-group input, .form-group textarea, .form-group select { border-radius: var(--r-field); }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--acqua-scuro); }
+.form-submit .btn { border-radius: 999px; }
+.orari-block { border-radius: var(--r-inner); border-left: 0; background: var(--acqua-chiaro); }
+.map-block { border-radius: var(--r-card); border: 0; background: var(--acqua-chiaro); }
+#form-success, .form-done { border-radius: var(--r-inner); border-left: 0 !important; }
+
+/* Profilo */
+.sidebar-block { border-radius: var(--r-card); margin-bottom: 12px !important; background: #f3f6f5 !important; }
+.sidebar-tag { border-radius: 999px; }
+.profile-lang-tag { border-radius: 999px; }
+
+/* Aree — settori tradizionali */
+.pill, .settore-tag { border-radius: 999px; }
+
+@media (max-width: 600px) {
+  .cta-acqua { padding: 0 1rem 3.5rem; }
+  .cta-acqua .cta-inner { padding: 2.4rem 1.6rem; border-radius: var(--r-card); }
+}
